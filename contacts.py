@@ -2,6 +2,13 @@
 # Date: 9/11/25
 # Purpose: This file is supposed to hold the functions that will be used in main.py
 
+def integer(n):
+    try:
+        int(n)
+        return True
+    except ValueError:
+        return False
+
 def print_list(contacts):
     """Contact list printing"""
     print("================== CONTACT LIST ==================")
@@ -9,8 +16,10 @@ def print_list(contacts):
     print("====== ==================== ====================")
     for i in range(len(contacts)):
         print(f'{str(i):8}{contacts[i][0]:22}{contacts[i][1]:22}')
+    if len(contacts) == 0:
+        print("The list is empty, put a name in first")
 
-def add_contact(contacts, /, *, first, last):
+def add_contact(contacts, first, last):
     """Adds names to the contact list"""
     contacts.append([first, last])
 
@@ -18,18 +27,22 @@ def modify_contact(contacts, /, *, nfirst, nlast, index):
     """Modifying contact information in system"""
     n = input("Enter the index number: ")
     n_int = int(n)
-    if -1 <= index < len(contacts):
+    if -1 <= index < len(contacts) and integer(n_int):
         contacts[index] = [nfirst, nlast]
         return True
     else:
+        print("An invalid option was entered, please try again")
         return False
     
 def delete_contact(contacts, /, *, index):
     """Deletes contacts in list"""
-    if -1 <= index < len(contacts):
+    n = input("Enter the index number: ")
+    n_int = int(n)
+    if -1 <= index < len(contacts) and integer(n_int):
         contacts.pop(contacts[index])
         return True
     else:
+        print("An invalid option was entered, please try again")
         return False
     
 def sort_contacts(contacts, /, *, column):

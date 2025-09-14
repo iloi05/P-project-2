@@ -22,18 +22,19 @@ while True:
     if prompt == "1":
         print_list(contacts)
     elif prompt == "2":
-        add_contact(contacts)
+        first = input("Enter first name: ").strip()
+        last = input("Enter last name: ").strip()
+        add_contact(contacts, first, last)
     elif prompt == "3":
         modify_contact(contacts)
     elif prompt == "4":
         delete_contact(contacts)
     elif prompt == "5":
-        # ask alton
+        contacts.sort_contacts(contacts, column = 0)
     elif prompt == "6":
-        # should be same as 5
+        contacts.sort_contacts(contacts, column = 1)
     elif prompt == "7":
         break
     if prompt not in choices:
         print("You've chosen an invalid option try again")
         continue
-    
