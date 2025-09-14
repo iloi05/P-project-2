@@ -19,9 +19,9 @@ def print_list(contacts):
     if len(contacts) == 0:
         print("The list is empty, put a name in first")
 
-def add_contact(contacts, first, last):
+def add_contact(contacts, /, *, first, last):
     """Adds names to the contact list"""
-    contacts.append([first, last])
+    contacts.append({"first": first, "last": last})
 
 def modify_contact(contacts, /, *, nfirst, nlast, index):
     """Modifying contact information in system"""

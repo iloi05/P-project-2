@@ -4,7 +4,7 @@
 
 from contacts import *
 
-contacts = None
+contacts = []
 choices = ["1", "2", "3", "4", "5", "6", "7"]
 
 while True:
@@ -22,9 +22,9 @@ while True:
     if prompt == "1":
         print_list(contacts)
     elif prompt == "2":
-        first = input("Enter first name: ").strip()
-        last = input("Enter last name: ").strip()
-        add_contact(contacts, first, last)
+        first = input("Enter first name: ")
+        last = input("Enter last name: ")
+        add_contact(contacts, first = first, last = last)
     elif prompt == "3":
         modify_contact(contacts)
     elif prompt == "4":
