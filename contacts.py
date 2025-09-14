@@ -11,13 +11,14 @@ def integer(n):
 
 def print_list(contacts):
     """Contact list printing"""
-    print("================== CONTACT LIST ==================")
-    print("Index  First Name           Last Name")
-    print("====== ==================== ====================")
-    for i in range(len(contacts)):
-        print(f'{str(i):8}{contacts[i][0]:22}{contacts[i][1]:22}')
-    if len(contacts) == 0:
+    if not contacts:
         print("The list is empty, put a name in first")
+    else:
+        print("================== CONTACT LIST ==================")
+        print("Index  First Name           Last Name")
+        print("====== ==================== ====================")
+        for i, contact in enumerate(contacts):
+            print(f"{i:<6} {contact['first']:<20} {contact['last']:<20}")
 
 def add_contact(contacts, /, *, first, last):
     """Adds names to the contact list"""
